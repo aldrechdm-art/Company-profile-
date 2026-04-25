@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Aldrech | Official Company Profile</title>
+  <!-- Google Fonts & smooth behavior -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fafcff;
+      color: #1a2b3e;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --primary: #1e4b6e;
+      --primary-dark: #0f3b57;
+      --secondary: #ffb74d;
+      --accent: #2b9b7b;
+      --gray-light: #f0f4f9;
+      --gray-mid: #eef2f7;
+      --text-dark: #1e2f3f;
+      --text-soft: #4a5c6c;
+      --white: #ffffff;
+      --shadow-sm: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+      --shadow-md: 0 20px 25px -12px rgba(0, 0, 0, 0.08);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* navbar */
+    .navbar {
+      background: var(--white);
+      backdrop-filter: blur(0px);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.03);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.96);
+    }
+
+    .nav-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .logo span {
+      color: var(--secondary);
+      background: none;
+      -webkit-background-clip: unset;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: var(--text-soft);
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-block;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      padding: 80px 0 80px;
+      background: linear-gradient(120deg, #ffffff 0%, #f5f9ff 100%);
+    }
+
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .hero-content {
+      flex: 1.2;
+    }
+
+    .hero-badge {
+      background: rgba(43, 155, 123, 0.12);
+      color: var(--accent);
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .hero-content h1 {
+      font-size: 3.3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-highlight {
+      color: var(--primary);
+      border-bottom: 3px solid var(--secondary);
+    }
+
+    .hero-desc {
+      font-size: 1.15rem;
+      color: var(--text-soft);
+      max-width: 550px;
+      margin-bottom: 32px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 32px;
+    }
+
+    .stat-item h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .hero-visual {
+      flex: 0.9;
+      background: var(--gray-light);
+      border-radius: 48px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: var(--shadow-md);
+    }
+
+    .hero-icon {
+      font-size: 8rem;
+      color: var(--primary);
+      opacity: 0.7;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 56px auto;
+      color: var(--text-soft);
+      font-size: 1.1rem;
+    }
+
+    /* leadership team grid */
+    .team-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 36px;
+    }
+
+    .team-member {
+      background: white;
+      border-radius: 32px;
+      padding: 28px 24px;
+      text-align: center;
+      width: 260px;
+      transition: transform 0.25s, box-shadow 0.25s;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.02);
+    }
+
+    .team-member:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .avatar {
+      width: 110px;
+      height: 110px;
+      background: var(--gray-mid);
+      border-radius: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+      font-size: 3rem;
+      color: var(--primary);
+    }
+
+    .team-member h4 {
+      font-size: 1.4rem;
+      margin-bottom: 6px;
+    }
+
+    .role {
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+      letter-spacing: -0.2px;
+    }
+
+    .contact-badge {
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      margin-top: 10px;
+      word-break: break-word;
+    }
+
+    /* services cards */
+    .cards-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 28px;
+      padding: 32px 24px;
+      flex: 1 1 240px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s;
+      text-align: center;
+    }
+
+    .card-icon {
+      font-size: 2.5rem;
+      background: var(--gray-light);
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 30px;
+      margin: 0 auto 24px;
+      color: var(--primary);
+    }
+
+    /* contact section special */
+    .contact-card {
+      background: var(--primary);
+      border-radius: 48px;
+      padding: 48px 56px;
+      color: white;
+      text-align: center;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    }
+
+    .contact-flex {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.15);
+      padding: 12px 26px;
+      border-radius: 60px;
+      backdrop-filter: blur(4px);
+      font-weight: 500;
+    }
+
+    .contact-item i {
+      font-size: 1.3rem;
+    }
+
+    footer {
+      background: #0f212f;
+      color: #cbd5e1;
+      padding: 48px 0 24px;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+
+    .footer-brand p {
+      margin-top: 12px;
+      max-width: 260px;
+    }
+
+    .footer-links h4, .footer-social h4 {
+      margin-bottom: 16px;
+      color: white;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 8px;
+    }
+
+    .footer-links a {
+      color: #b9cadb;
+      text-decoration: none;
+    }
+
+    .social-icons a {
+      color: white;
+      background: rgba(255,255,255,0.1);
+      width: 38px;
+      height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 40px;
+      margin-right: 12px;
+      transition: 0.2s;
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 24px;
+      }
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      .navbar .nav-flex {
+        flex-direction: column;
+        gap: 16px;
+      }
+      .nav-links {
+        gap: 1.2rem;
+      }
+      .hero-grid {
+        flex-direction: column;
+      }
+      .contact-card {
+        padding: 32px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar">
+  <div class="container nav-flex">
+    <div class="logo">aldrech<span>.</span></div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Capabilities</a></li>
+      <li><a href="#leadership">Leadership</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div>
+      <a href="#contact" class="btn-primary">Connect with us <i class="fas fa-arrow-right" style="margin-left: 6px;"></i></a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <div class="hero-badge"><i class="fas fa-chart-line"></i>  Next-gen creative & business forge</div>
+      <h1>Crafting <span class="hero-highlight">impactful stories</span> & digital growth</h1>
+      <p class="hero-desc">Aldrech is a dynamic collective of strategists, creators, and tech visionaries. We blend storytelling with data to elevate brands, manage operations, and produce stunning visual content.</p>
+      <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+        <a href="#leadership" class="btn-primary" style="background: var(--accent);">Meet the minds →</a>
+        <a href="#contact" class="btn-outline" style="background: transparent; border: 1.5px solid var(--primary); color: var(--primary); padding: 8px 22px; border-radius: 40px; font-weight: 600; text-decoration: none;">Get in touch</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item"><h3>50+</h3><span>Projects delivered</span></div>
+        <div class="stat-item"><h3>4</h3><span>Core specialists</span></div>
+        <div class="stat-item"><h3>100%</h3><span>Client dedication</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-icon"><i class="fas fa-users-viewfinder"></i></div>
+      <p style="margin-top: 16px; font-weight: 500;">Vision meets execution</p>
+      <div style="font-size: 0.8rem; color: var(--text-soft);">Strategy • Media • Montage</div>
+    </div>
+  </div>
+</section>
+
+<!-- Services / Core Capabilities -->
+<section id="services" style="background: var(--gray-light);">
+  <div class="container">
+    <div class="section-title">What we excel at</div>
+    <div class="section-sub">Integrated solutions that drive business growth, digital presence, and visual excellence.</div>
+    <div class="cards-grid">
+      <div class="service-card">
+        <div class="card-icon"><i class="fas fa-chart-simple"></i></div>
+        <h3>Business Development</h3>
+        <p>Strategic partnerships, market expansion & operational management.</p>
+      </div>
+      <div class="service-card">
+        <div class="card-icon"><i class="fas fa-bullhorn"></i></div>
+        <h3>Digital Marketing</h3>
+        <p>SEO, social media strategy, performance campaigns & brand building.</p>
+      </div>
+      <div class="service-card">
+        <div class="card-icon"><i class="fas fa-video"></i></div>
+        <h3>Montage & Editing</h3>
+        <p>Professional video editing, storytelling cuts, post-production magic.</p>
+      </div>
+      <div class="service-card">
+        <div class="card-icon"><i class="fas fa-crown"></i></div>
+        <h3>Executive Direction</h3>
+        <p>Visionary leadership & corporate strategy under MD & CEO office.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP TEAM - exact roles as requested -->
+<section id="leadership" style="background: white;">
+  <div class="container">
+    <div class="section-title">The force behind Aldrech</div>
+    <div class="section-sub">Meet the passionate leaders driving innovation, client success, and creative excellence.</div>
+    <div class="team-grid">
+      
+      <!-- Managing Director & CEO: Prathamesh Bokane -->
+      <div class="team-member">
+        <div class="avatar"><i class="fas fa-user-tie"></i></div>
+        <h4>Prathamesh Bokane</h4>
+        <div class="role">Managing Director & CEO</div>
+        <p style="font-size: 0.85rem; margin-top: 8px;">Visionary leadership, corporate strategy, and driving Aldrech's global footprint.</p>
+        <div class="contact-badge"><i class="fas fa-envelope"></i> prathamesh@aldrech.com</div>
+      </div>
+      
+      <!-- Business Development & Management: Vanshika Meshram -->
+      <div class="team-member">
+        <div class="avatar"><i class="fas fa-chart-line"></i></div>
+        <h4>Vanshika Meshram</h4>
+        <div class="role">Business Development & Management</div>
+        <p style="font-size: 0.85rem; margin-top: 8px;">Strategic alliances, operational excellence, and scaling new verticals.</p>
+        <div class="contact-badge"><i class="fas fa-briefcase"></i> vanshika@aldrech.com</div>
+      </div>
+      
+      <!-- Digital Marketing Specialist & Manager: Praful -->
+      <div class="team-member">
+        <div class="avatar"><i class="fas fa-chart-pie"></i></div>
+        <h4>Praful</h4>
+        <div class="role">Digital Marketing Specialist & Manager</div>
+        <p style="font-size: 0.85rem; margin-top: 8px;">Performance marketing, brand storytelling, online growth & analytics.</p>
+        <div class="contact-badge"><i class="fas fa-ad"></i> praful@aldrech.com</div>
+      </div>
+      
+      <!-- Montage Specialist & Editor: Nilam Gadge -->
+      <div class="team-member">
+        <div class="avatar"><i class="fas fa-film"></i></div>
+        <h4>Nilam Gadge</h4>
+        <div class="role">Montage Specialist & Editor</div>
+        <p style="font-size: 0.85rem; margin-top: 8px;">Creative editing, visual narrative, post-production and motion graphics.</p>
+        <div class="contact-badge"><i class="fas fa-scissors"></i> nilam@aldrech.com</div>
+      </div>
+    </div>
+    <p style="text-align: center; margin-top: 48px; font-size: 0.9rem; color: var(--text-soft);"><i class="fas fa-handshake"></i> One team, limitless possibilities — built on trust and creativity.</p>
+  </div>
+</section>
+
+<!-- Contact Section with email & phone as requested -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-card">
+      <h3>Let’s shape the future together</h3>
+      <p style="max-width: 500px; margin: 0 auto;">Reach out to our leadership or any department — we're just a message away.</p>
+      <div class="contact-flex">
+        <div class="contact-item"><i class="fas fa-envelope"></i> aldrech.dm@gmail.com</div>
+        <div class="contact-item"><i class="fas fa-phone-alt"></i> +91 74985 32739</div>
+        <div class="contact-item"><i class="fab fa-whatsapp"></i> +91 74985 32739</div>
+      </div>
+      <div style="margin-top: 36px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="mailto:aldrech.dm@gmail.com" class="btn-primary" style="background: var(--secondary); color:#1e2f3f;">Email us directly</a>
+        <a href="tel:+917498532739" class="btn-outline" style="background: rgba(255,255,255,0.15); border: 1px solid white; color: white; text-decoration: none; padding: 10px 24px; border-radius: 40px;">Call now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer with contact again for clarity -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3 style="color: white; font-size: 1.7rem;">aldrech.</h3>
+        <p>Creative direction. Business intelligence. Visual craftsmanship.</p>
+        <p style="font-size: 0.8rem; margin-top: 12px;"><i class="fas fa-envelope"></i> aldrech.dm@gmail.com<br><i class="fas fa-phone"></i> +91 74985 32739</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Capabilities</a></li>
+          <li><a href="#leadership">Leadership</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Leadership</h4>
+        <ul>
+          <li>Prathamesh Bokane (MD & CEO)</li>
+          <li>Vanshika Meshram (BD & Mgmt)</li>
+          <li>Praful (Digital Mktg)</li>
+          <li>Nilam Gadge (Montage)</li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h4>Connect</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>© 2025 Aldrech — Built with precision by the team that cares. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('.nav-links a, .btn-primary[href^="#"], .btn-outline[href^="#"], .footer-links a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId && targetId.startsWith('#') && targetId !== '#') {
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }
+    });
+  });
+  console.log("Aldrech — Leadership: Prathamesh Bokane, Vanshika Meshram, Praful, Nilam Gadge");
+</script>
+</body>
+</html>
